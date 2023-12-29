@@ -44,7 +44,7 @@ namespace Deceilio.Psychain
             quickSlotsUI = FindObjectOfType<UI_QuickSlots>();
             interactableUI = FindObjectOfType<UI_Interactable>();
 
-            WRLD_SAVE_GAME_MANAGER.instance.player = this;
+            //WRLD_SAVE_GAME_MANAGER.instance.player = this; Enable after menu of this project is finished
         }
         protected override void Update() // Calling interaction and states, etc in Update
         {

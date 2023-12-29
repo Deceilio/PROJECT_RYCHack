@@ -24,23 +24,23 @@ namespace Deceilio.Psychain
             base.Start();
             maxHealth = SetMaxHealthFromHealthLevel();
             currentHealth = maxHealth;
-            healthBar.SetMaxHealth(maxHealth);
-            healthBar.SetCurrentHealth(currentHealth);
+            //healthBar.SetMaxHealth(maxHealth);
+            //healthBar.SetCurrentHealth(currentHealth);
 
             maxStamina = SetMaxStaminaFromStaminaLevel();
             currentStamina = maxStamina;
-            staminaBar.SetMaxStamina(maxStamina);
-            staminaBar.SetCurrentStamina(currentStamina);
+            //staminaBar.SetMaxStamina(maxStamina);
+            //staminaBar.SetCurrentStamina(currentStamina);
 
             maxSkillPoints = SetMaxSkillPointsFromSkillLevel();
             currentSkillPoints = maxSkillPoints;
-            skillsPointBar.SetMaxSkillPoints(maxSkillPoints);
-            skillsPointBar.SetCurrentSkillPoints(currentSkillPoints);
+            //skillsPointBar.SetMaxSkillPoints(maxSkillPoints);
+            //skillsPointBar.SetCurrentSkillPoints(currentSkillPoints);
         }
 
         protected override void Update()
         {
-            healthBar.SetCurrentHealth(currentHealth);       
+            //healthBar.SetCurrentHealth(currentHealth);       
         }
 
         // public override void TakeDamage(int physicalDamage, int fireDamage, string damageAnimation, CharacterManager enemyCharacterDamagingMe)
@@ -66,7 +66,7 @@ namespace Deceilio.Psychain
         public override void DeductStamina(float staminaToDeduct)
         {
             base.DeductStamina(staminaToDeduct);
-            staminaBar.SetCurrentStamina(Mathf.RoundToInt(currentStamina));
+            //staminaBar.SetCurrentStamina(Mathf.RoundToInt(currentStamina));
         }
         public override void DeductSkillPoints(int skillPoints)
         {
@@ -91,7 +91,7 @@ namespace Deceilio.Psychain
                     sprintingTimer = 0;
                     // Deduct Stamina
                     currentStamina = currentStamina - staminaToDeduct;
-                    staminaBar.SetCurrentStamina(Mathf.RoundToInt(currentStamina));
+                    //staminaBar.SetCurrentStamina(Mathf.RoundToInt(currentStamina));
                 }
             }
             else
@@ -120,7 +120,7 @@ namespace Deceilio.Psychain
                     else 
                     {
                         currentStamina += staminaRegenAmount * Time.deltaTime;
-                        staminaBar.SetCurrentStamina(Mathf.RoundToInt(currentStamina));
+                        //staminaBar.SetCurrentStamina(Mathf.RoundToInt(currentStamina));
                     }  
                 }
             }

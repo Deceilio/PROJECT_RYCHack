@@ -505,25 +505,25 @@ namespace Deceilio.Psychain
         {
             if(inventoryFlag)
             {
-                player.playerUIManager.UpdateUI();
+                //player.playerUIManager.UpdateUI();
             }
 
             if(inventoryInput)
             {
                 inventoryFlag = !inventoryFlag;
 
-                if(inventoryFlag)
-                {
-                    player.playerUIManager.OpenSelectWindow();
-                    player.playerUIManager.UpdateUI();
-                    player.playerUIManager.hudWindow.SetActive(false);
-                }
-                else
-                {
-                    player.playerUIManager.CloseSelectWindow();
-                    player.playerUIManager.CloseAllInventoryWindow();
-                    player.playerUIManager.hudWindow.SetActive(true);
-                }
+                // if(inventoryFlag)
+                // {
+                //     player.playerUIManager.OpenSelectWindow();
+                //     player.playerUIManager.UpdateUI();
+                //     player.playerUIManager.hudWindow.SetActive(false);
+                // }
+                // else
+                // {
+                //     player.playerUIManager.CloseSelectWindow();
+                //     player.playerUIManager.CloseAllInventoryWindow();
+                //     player.playerUIManager.hudWindow.SetActive(true);
+                // }
             }
         }
         private void UseQuickSlotsInput()

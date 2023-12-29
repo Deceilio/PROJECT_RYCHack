@@ -19,7 +19,7 @@ namespace Deceilio.Psychain
                     leftHandSlot.currentWeapon = weaponItem;
                     leftHandSlot.LoadWeaponModel(weaponItem);
                     LoadLeftWeaponDamageHitbox();
-                    player.quickSlotsUI.UpdateWeaponQuickSlotUI(true, weaponItem);
+                    //player.quickSlotsUI.UpdateWeaponQuickSlotUI(true, weaponItem);
                     //player.playerAnimatorManager.PlayTargetActionAnimation(weaponItem.offHandIdleAnimation, false, true, true, true);
                 }
                 else
@@ -39,7 +39,7 @@ namespace Deceilio.Psychain
                     rightHandSlot.currentWeapon = weaponItem;
                     rightHandSlot.LoadWeaponModel(weaponItem);
                     LoadRightWeaponDamageHitbox();
-                    player.quickSlotsUI.UpdateWeaponQuickSlotUI(false, weaponItem);
+                    //player.quickSlotsUI.UpdateWeaponQuickSlotUI(false, weaponItem);
                     player.animator.runtimeAnimatorController = weaponItem.weaponController;
                 }
             }

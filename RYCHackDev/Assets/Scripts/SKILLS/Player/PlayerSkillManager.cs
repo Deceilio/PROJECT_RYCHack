@@ -10,8 +10,8 @@ namespace Deceilio.Psychain
         
         private void Start()
         {
-            currentSkillBeingUsed = skillsEquippedSlots[currentSkillIndex];
-            player.quickSlotsUI.UpdateSkillQuickSlotUI(currentSkillBeingUsed);
+            //currentSkillBeingUsed = skillsEquippedSlots[currentSkillIndex];
+            //player.quickSlotsUI.UpdateSkillQuickSlotUI(currentSkillBeingUsed);
         }
         protected override void Awake()
         {
@@ -19,9 +19,9 @@ namespace Deceilio.Psychain
             player = GetComponent<PlayerManager>();
 
             rightPanel = GameObject.Find("Right Panel");
-            skillScreenWindow = rightPanel.transform.Find("Skills Screen Window");
-            Transform skillWindowTransform = skillScreenWindow.Find("Skill Window");
-            skillWindowUI = skillWindowTransform.gameObject.GetComponent<UI_SkillWindow>();
+            //skillScreenWindow = rightPanel.transform.Find("Skills Screen Window");
+            //Transform skillWindowTransform = skillScreenWindow.Find("Skill Window");
+            //skillWindowUI = skillWindowTransform.gameObject.GetComponent<UI_SkillWindow>();
         }
         protected override void Update()
         {
@@ -52,7 +52,7 @@ namespace Deceilio.Psychain
         public void LoadSkillOnSlot(WRLD_SKILL_ITEM skillItem)
         {
             currentSkillBeingUsed = skillItem;
-            player.quickSlotsUI.UpdateSkillQuickSlotUI(skillItem);
+           // player.quickSlotsUI.UpdateSkillQuickSlotUI(skillItem);
         }
     }
 }

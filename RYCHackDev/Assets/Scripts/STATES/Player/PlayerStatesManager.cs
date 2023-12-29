@@ -22,8 +22,8 @@ namespace Deceilio.Psychain
         protected override void Start()
         {
             base.Start();
-            currentConsumableBeingUsed = consumableEquippedSlots[currentConsumableIndex];
-            player.quickSlotsUI.UpdateConsumableItemQuickSlotUI(currentConsumableBeingUsed);
+            //currentConsumableBeingUsed = consumableEquippedSlots[currentConsumableIndex];
+            //player.quickSlotsUI.UpdateConsumableItemQuickSlotUI(currentConsumableBeingUsed);
         }
 
         protected override void Update()
@@ -57,7 +57,7 @@ namespace Deceilio.Psychain
         public void LoadConsumableOnSlot(WRLD_CONSUMABLE_ITEM consumableItem)
         {
             currentConsumableBeingUsed = consumableItem;
-            player.quickSlotsUI.UpdateConsumableItemQuickSlotUI(consumableItem);
+            //player.quickSlotsUI.UpdateConsumableItemQuickSlotUI(consumableItem);
         }
 
         public void HealPlayerFromState(int healAmount)
@@ -81,8 +81,8 @@ namespace Deceilio.Psychain
             {
                 player.characterStatsManager.poisonBuildUp -= 1;
 
-                poisonBuildUpBar.gameObject.SetActive(true);
-                poisonBuildUpBar.SetPoisonBuildUpAmount(Mathf.RoundToInt(player.characterStatsManager.poisonBuildUp));
+                //poisonBuildUpBar.gameObject.SetActive(true);
+                //poisonBuildUpBar.SetPoisonBuildUpAmount(Mathf.RoundToInt(player.characterStatsManager.poisonBuildUp));
             }
         }
     }
