@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e353a06547c02734aa72e485a426d413, type: 3}
+  m_Name: Vial of Zenith
+  m_EditorClassIdentifier: 
+  itemID: 12
+  itemIcon: {fileID: 21300000, guid: 060ce0b097f3ffd4ca2bcdce9cf478a2, type: 3}
+  itemName: Vial of Zenith
+  itemLore: "In the realm, where destiny converges, the Vial of Zenith emerges\u2014a
+    mystical flask for those who seek to sharpen their skills. Crafted in the forge
+    of celestial energies, this elixir holds the essence of clarity, drawn from the
+    very apex of concentration."
+  maxItemAmount: 10
+  currentItemAmount: 10
+  itemModel: {fileID: 4564981837242982206, guid: f57c1be1027b64a40bb38918f7a3ebf0,
+    type: 3}
+  consumeAnimation: Drink_Zenith
+  isPerformingAction: 0
+  vigourVial: 0
+  zenithVial: 1
+  healthRecoveryAmount: 0
+  skillPointRecoveryAmount: 50
+  recoveryFX: {fileID: 3732551427800355369, guid: 4e3bfdbcba2c8e0469a21ee63e7a4926,
+    type: 3}
+  timeUntilDestroyed: 2

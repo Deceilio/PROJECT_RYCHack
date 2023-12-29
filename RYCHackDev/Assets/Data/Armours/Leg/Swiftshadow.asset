@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6e8351284c2b0c4d856410c294ccbed, type: 3}
+  m_Name: Swiftshadow
+  m_EditorClassIdentifier: 
+  itemID: 17
+  itemIcon: {fileID: 21300000, guid: 1198f9299ecb68644a5acbc11344b735, type: 3}
+  itemName: Swiftshadow
+  itemLore: Forged in twilight's embrace, the Shiftshadow leg armor holds the essence
+    of elusive spectres. Those who don this legendary gear gain the uncanny ability
+    to meld with shadows, traversing realms unseen and dancing on the edge of reality
+    itself.
+  physicalDefense: 10
+  weight: 9
+  poisonResistance: 0.4
+  hipModelName: EmptyHip
+  leftLegName: Swiftshadow
+  rightLegName: Swiftshadow

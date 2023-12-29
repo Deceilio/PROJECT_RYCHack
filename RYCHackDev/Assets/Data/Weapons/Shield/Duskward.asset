@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff68ab703e388e4408e1645222b720c0, type: 3}
+  m_Name: Duskward
+  m_EditorClassIdentifier: 
+  itemID: 9
+  itemIcon: {fileID: 21300000, guid: 6eb613edcbc8eba4abe2b0e18d7c6406, type: 3}
+  itemName: Duskward
+  itemLore: '"Duskward": Twilight''s essence, knight''s sacrifice. Shield against
+    darkness, empowers light. Valen''s legacy, Sentinel''s guard, Eclipsia''s balance.'
+  modelPrefab: {fileID: 2700061495364802088, guid: f010bd7ae98ecec47983646ca4466174,
+    type: 3}
+  isUnarmed: 0
+  weaponController: {fileID: 22100000, guid: 02f5adfdf16f43c4e975a6526ec60981, type: 2}
+  weaponHoldingType: 1
+  weaponType: 2
+  weaponSkillType: 0
+  ikEnabled: 0
+  physicalDamage: 0
+  fireDamage: 0
+  lightAttackDamageModifier: 0
+  heavyAttackDamageModifier: 0
+  guardBreakModifier: 1
+  criticalDamageMultiplier: 0
+  poiseBreak: 0
+  attackingPoiseBonus: 0
+  physicalBlockingDamageAbsorption: 99
+  fireBlockingDamageAbsorption: 50
+  stability: 20
+  baseStaminaCost: 0
+  lightAttackStaminaMultiplier: 0
+  heavyAttackStaminaMultiplier: 0
+  oh_Tap_RB_Action: {fileID: 0}
+  oh_Tap_RT_Action: {fileID: 0}
+  oh_Hold_RB_Action: {fileID: 0}
+  oh_Hold_RT_Action: {fileID: 0}
+  oh_Tap_LB_Action: {fileID: 0}
+  oh_Tap_LT_Action: {fileID: 11400000, guid: 48b78f8eb8fbd2c46b4aba3b44b76fee, type: 2}
+  oh_Hold_LB_Action: {fileID: 11400000, guid: 447ddb906a17093449698d15483273da, type: 2}
+  th_Tap_RB_Action: {fileID: 0}
+  th_Tap_RT_Action: {fileID: 0}
+  th_Hold_RB_Action: {fileID: 0}
+  th_Hold_RT_Action: {fileID: 0}
+  th_Tap_LB_Action: {fileID: 0}
+  th_Tap_LT_Action: {fileID: 0}
+  th_Hold_LB_Action: {fileID: 0}
+  weaponEffectSound: []
+  canBeBuffed: 1

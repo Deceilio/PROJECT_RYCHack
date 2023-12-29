@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff68ab703e388e4408e1645222b720c0, type: 3}
+  m_Name: Phaze
+  m_EditorClassIdentifier: 
+  itemID: 2
+  itemIcon: {fileID: 21300000, guid: 153dc7b4bf9c05042bf3727e81f3ca7a, type: 3}
+  itemName: Phaze
+  itemLore: In the mysterious realm of the world, the legendary sword Phaze blazed
+    with divine power, wielded by the chosen one, Nix. With Phaze, she vanquished
+    darkness and became a symbol of hope and courage throughout the time.
+  modelPrefab: {fileID: 2700061495364802088, guid: f8a7e28db0e89f544a4ac4958f21ef79,
+    type: 3}
+  isUnarmed: 0
+  weaponController: {fileID: 22100000, guid: 02f5adfdf16f43c4e975a6526ec60981, type: 2}
+  weaponHoldingType: 0
+  weaponType: 0
+  weaponSkillType: 1
+  ikEnabled: 1
+  physicalDamage: 25
+  fireDamage: 0
+  lightAttackDamageModifier: 1
+  heavyAttackDamageModifier: 2
+  guardBreakModifier: 1
+  criticalDamageMultiplier: 4
+  poiseBreak: 110
+  attackingPoiseBonus: 75
+  physicalBlockingDamageAbsorption: 0
+  fireBlockingDamageAbsorption: 0
+  stability: 67
+  baseStaminaCost: 20
+  lightAttackStaminaMultiplier: 1
+  heavyAttackStaminaMultiplier: 2
+  oh_Tap_RB_Action: {fileID: 11400000, guid: 1e2651c8928b4604aa976591130a9ccc, type: 2}
+  oh_Tap_RT_Action: {fileID: 11400000, guid: 82ec12413192b9044af5d95a88a92cff, type: 2}
+  oh_Hold_RB_Action: {fileID: 0}
+  oh_Hold_RT_Action: {fileID: 0}
+  oh_Tap_LB_Action: {fileID: 11400000, guid: 12b50021ea0df5944904dea7f7b61121, type: 2}
+  oh_Tap_LT_Action: {fileID: 0}
+  oh_Hold_LB_Action: {fileID: 0}
+  th_Tap_RB_Action: {fileID: 0}
+  th_Tap_RT_Action: {fileID: 0}
+  th_Hold_RB_Action: {fileID: 0}
+  th_Hold_RT_Action: {fileID: 0}
+  th_Tap_LB_Action: {fileID: 0}
+  th_Tap_LT_Action: {fileID: 0}
+  th_Hold_LB_Action: {fileID: 0}
+  weaponEffectSound:
+  - {fileID: 8300000, guid: 92fa2559275ba1f42b4678a15bab2047, type: 3}
+  - {fileID: 8300000, guid: e10747eb551edc64dbf63b282eb938f5, type: 3}
+  - {fileID: 8300000, guid: 4ba47128950cb7f4d8ff1f33c68a67d3, type: 3}
+  canBeBuffed: 1

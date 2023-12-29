@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f3011cccb1f36b46b7ae33c2ac0d7d9, type: 3}
+  m_Name: Soulforge
+  m_EditorClassIdentifier: 
+  itemID: 15
+  itemIcon: {fileID: 21300000, guid: 4f5b09b5d9d4ace419d0728bba975653, type: 3}
+  itemName: Soulforge
+  itemLore: Forged in ethereal flames, the Soulforge armor resonates with the spirits
+    of ancient warriors who once battled the forces of darkness. It bestows upon
+    its bearer not only formidable protection but also a connection to the relentless
+    determination that once coursed through these valiant souls.
+  physicalDefense: 15
+  weight: 25
+  poisonResistance: 0
+  chestArmourName: Soulforge
+  leftUpperArmModelName: EmptyLeftUpperArm
+  rightUpperArmModelName: Obsidium

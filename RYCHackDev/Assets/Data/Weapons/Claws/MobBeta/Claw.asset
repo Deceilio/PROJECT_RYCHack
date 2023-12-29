@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff68ab703e388e4408e1645222b720c0, type: 3}
+  m_Name: Claw
+  m_EditorClassIdentifier: 
+  itemID: 5
+  itemIcon: {fileID: 0}
+  itemName: 
+  itemLore: 
+  modelPrefab: {fileID: 0}
+  isUnarmed: 0
+  weaponController: {fileID: 0}
+  offHandIdleAnimation: Left_Arm_Idle_01
+  weaponHoldingType: 0
+  weaponType: 0
+  weaponSkillType: 0
+  physicalDamage: 25
+  fireDamage: 0
+  lightAttackDamageModifier: 1
+  heavyAttackDamageModifier: 1
+  criticalDamageMultiplier: 4
+  poiseBreak: 0
+  attackingPoiseBonus: 0
+  baseStaminaCost: 0
+  lightAttackStaminaMultiplier: 0
+  heavyAttackStaminaMultiplier: 0
+  tap_RB_Action: {fileID: 0}
+  tap_RT_Action: {fileID: 0}
+  hold_RB_Action: {fileID: 0}
+  hold_RT_Action: {fileID: 0}
+  tap_LB_Action: {fileID: 0}
+  tap_LT_Action: {fileID: 0}
+  hold_LB_Action: {fileID: 0}
+  canBeBuffed: 1

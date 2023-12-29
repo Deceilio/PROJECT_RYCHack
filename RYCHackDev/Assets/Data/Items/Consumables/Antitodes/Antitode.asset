@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dab26d5a20305604a965ed6b08f41087, type: 3}
+  m_Name: Antitode
+  m_EditorClassIdentifier: 
+  itemID: 13
+  itemIcon: {fileID: 21300000, guid: 9eaf3e276656d2d499083e61fdd6ee50, type: 3}
+  itemName: Antitode
+  itemLore: 
+  maxItemAmount: 10
+  currentItemAmount: 10
+  itemModel: {fileID: 4564981837242982206, guid: 83b137be336342d4db689f2bcf495969,
+    type: 3}
+  consumeAnimation: Drink
+  isPerformingAction: 0
+  antitodeConsumeFX: {fileID: 7390908021639552057, guid: cff081c1a87716847a41d9aed5acdae3,
+    type: 3}
+  cureAmount: 50
+  curePoison: 1
+  timeUntilDestroyed: 2

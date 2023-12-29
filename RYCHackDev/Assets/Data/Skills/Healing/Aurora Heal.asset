@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 807d66f1f6a44cc42b1a2a1c057d7904, type: 3}
+  m_Name: Aurora Heal
+  m_EditorClassIdentifier: 
+  itemID: 8
+  itemIcon: {fileID: 21300000, guid: 06f50515e1424384b9e26c4a71332da4, type: 3}
+  itemName: Aurora Heal
+  itemLore: Within the echoes of ages past, the Cursed Sword Phaze reveals an unexpected
+    luminescence. A celestial dance, a veil lifted, channeling vitality with the
+    brilliance of dawn's embrace. Across battles transcending time, it revitalizes,
+    rejuvenates, and weaves solace into the very fabric of existence.
+  skillPointCost: 45
+  skillType: Healing - +%45
+  skillWarmUpFX: {fileID: 3732551427800355369, guid: 2b38331f8187917449ee4f1c10e4f9d4,
+    type: 3}
+  skillCastFX: {fileID: 3732551427800355369, guid: 2b38331f8187917449ee4f1c10e4f9d4,
+    type: 3}
+  skillAnimation: WRLD_Healing_Skill_Start_01
+  isFaithSkill: 0
+  isTechSkill: 1
+  isPyroSkill: 0
+  healAmount: 5

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f3011cccb1f36b46b7ae33c2ac0d7d9, type: 3}
+  m_Name: Null Chest
+  m_EditorClassIdentifier: 
+  itemID: 0
+  itemIcon: {fileID: 21300000, guid: 0151ac52eef3b004381665295d51c446, type: 3}
+  itemName: 
+  itemLore: 
+  physicalDefense: 0
+  weight: 99
+  poisonResistance: 0
+  chestArmourName: EmptyChest
+  leftUpperArmModelName: EmptyLeftUpperArm
+  rightUpperArmModelName: EmptyRightUpperArm

@@ -1,0 +1,35 @@
+ITEMS LIST:
+
+1 - Zeith - Sword - Weapon
+2 - Phaze - Sword - Weapon
+3 - Durandal - Sword - Weapon
+4 - Ascalon - Sword - Weapon
+5 - Claw - Claw - Weapon
+6 - Temporal Mend - Heal - Skill
+7 - Fate Heal - Heal - Skill
+8 - Aurora Heal - Heal Skill
+9 - Duskward - Shield - Weapon
+10 - Ignis Nova - Projectile - Skill
+11 - Vial of Vigour - Heal Regen - Vial
+12 - Vial of Zenith - Skill Regen - Vial
+13 - Antitode - Antitode - Consumables
+14 - Nixium - Head Armour - Armour
+15 - Soulforge - Chest Armour - Armour
+16 - Aegis - Hand Armour - Armour
+17 - Swiftshadow - Leg Armour - Armour
+18 - Embercaster - Projectile - Weapon
+19 - Ember Pyxis - Bomb - Consumables
+20 - Frostfire - Bow - Weapon
+21 - Mightbrew - Physical Buff - Consumables
+22 - Blazebrew - Fire Buff - Consumables
+
+STATES LIST:
+
+1 - Modify Physical Damage - Physical Modification - Static State
+2 - Modify Fire Damage - Fire Modification - Static State
+3 - Take Damage - Normal Damage - Instant State
+4 - Take Blocked Damage - Block Damage - Instant State
+5 - Physical Buff - Weapon Buffs - Timed State
+6 - Fire Buff - Weapon Buffs - Timed State
+7 - Poisoned - Poison - Timed State
+8 - Poison Build Up - Poison - Timed State

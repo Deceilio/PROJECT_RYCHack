@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db8f249fb5fe4ed4fa265bc14c35a9b2, type: 3}
+  m_Name: Ignis Nova
+  m_EditorClassIdentifier: 
+  itemID: 10
+  itemIcon: {fileID: 21300000, guid: d9f7d71722979e54bb6582925f58a2e6, type: 3}
+  itemName: Ignis Nova
+  itemLore: "In this world, Zeith's cursed sword birthed the Ignis Nova\u2014a scorching
+    strike of unmatched power. Fueled by fire, it consumed all, a reminder of the
+    perilous cost of unchecked ambition."
+  skillPointCost: 50
+  skillType: Projectile Damage - %25
+  skillWarmUpFX: {fileID: 1238843893459588, guid: ace02ce105bc7644996d14bac276a593,
+    type: 3}
+  skillCastFX: {fileID: 1238843893459588, guid: 8459cbc5455e6a64e8e327ab8b8577a9,
+    type: 3}
+  skillAnimation: Fire_Ball_Start_01
+  isFaithSkill: 0
+  isTechSkill: 0
+  isPyroSkill: 1
+  baseDamage: 200
+  projectileForwardVelocity: 500
+  projectileUpwardVelocity: 150
+  projectileMass: 25
+  isEffectedByGravity: 0
+  projectileSize: {x: 1, y: 1, z: 1}

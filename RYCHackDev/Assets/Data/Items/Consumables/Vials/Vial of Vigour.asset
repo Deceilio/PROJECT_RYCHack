@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e353a06547c02734aa72e485a426d413, type: 3}
+  m_Name: Vial of Vigour
+  m_EditorClassIdentifier: 
+  itemID: 11
+  itemIcon: {fileID: 21300000, guid: ccb818e8773fd7b478a0ed6dc7cb6078, type: 3}
+  itemName: Vial of Vigour
+  itemLore: Through distant realms and ages long past, the Vial of Vigour extends
+    its invitation, alluring those in need of restoration. As a bridge spanning the
+    fabric of existence, it orchestrates a graceful symphony of renewal, melding
+    life's forces into an enduring source of vitality.
+  maxItemAmount: 10
+  currentItemAmount: 10
+  itemModel: {fileID: 4564981837242982206, guid: 4fe921631c92450459dc39888ccf12cd,
+    type: 3}
+  consumeAnimation: Drink_Vigour
+  isPerformingAction: 0
+  vigourVial: 1
+  zenithVial: 0
+  healthRecoveryAmount: 50
+  skillPointRecoveryAmount: 0
+  recoveryFX: {fileID: 3732551427800355369, guid: 80f73d1f664a91a4dad3d2d5811df306,
+    type: 3}
+  timeUntilDestroyed: 2

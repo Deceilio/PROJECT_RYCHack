@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff68ab703e388e4408e1645222b720c0, type: 3}
+  m_Name: Frostfire
+  m_EditorClassIdentifier: 
+  itemID: 20
+  itemIcon: {fileID: 21300000, guid: 33d7bfba599ec77428a18d4aa0cc3a7a, type: 3}
+  itemName: Frostfire
+  itemLore: "\rIn a realm of elemental clash, the Frostfire Bow emerged from the
+    Arctic Forge's paradoxical embrace. It merged frost and fire into a harmonious
+    weapon, but when cursed in Nix's hands, chaos ensued\u2014freezing and burning
+    at whim."
+  modelPrefab: {fileID: 2700061495364802088, guid: f0c1143645dc1b04bac0612dea275a55,
+    type: 3}
+  isUnarmed: 0
+  weaponController: {fileID: 22100000, guid: 33e3c8254f15b7f4082e92a374f8af5c, type: 2}
+  offHandIdleAnimation: Left_Arm_Idle_01
+  weaponHoldingType: 0
+  weaponType: 4
+  weaponSkillType: 0
+  ikEnabled: 0
+  physicalDamage: 25
+  fireDamage: 0
+  lightAttackDamageModifier: 1
+  heavyAttackDamageModifier: 1
+  criticalDamageMultiplier: 4
+  poiseBreak: 0
+  attackingPoiseBonus: 0
+  baseStaminaCost: 0
+  lightAttackStaminaMultiplier: 0
+  heavyAttackStaminaMultiplier: 0
+  tap_RB_Action: {fileID: 0}
+  tap_RT_Action: {fileID: 0}
+  hold_RB_Action: {fileID: 0}
+  hold_RT_Action: {fileID: 0}
+  tap_LB_Action: {fileID: 0}
+  tap_LT_Action: {fileID: 0}
+  hold_LB_Action: {fileID: 0}
+  canBeBuffed: 1
