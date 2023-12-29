@@ -159,7 +159,7 @@ PlayerSettings:
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
     Android: com.unity3d.vikingVillageURP
-    Standalone: com.UnityTechnologies.VikingVillage
+    Standalone: com.DefaultCompany.RYCHackDev
     iPhone: com.Company.ProductName
     tvOS: com.Company.ProductName
   buildNumber:
@@ -839,7 +839,7 @@ PlayerSettings:
   hmiLogStartupTiming: 0
   hmiCpuConfiguration: 
   apiCompatibilityLevel: 6
-  activeInputHandler: 0
+  activeInputHandler: 2
   windowsGamepadBackendHint: 0
   cloudProjectId: 90da74f2-c3c4-4bbb-bc64-1508b899d2dc
   framebufferDepthMemorylessMode: 0
