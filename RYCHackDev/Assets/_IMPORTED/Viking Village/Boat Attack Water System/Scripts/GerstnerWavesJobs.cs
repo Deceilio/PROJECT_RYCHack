@@ -52,7 +52,7 @@ namespace WaterSystem
 
             //Cleanup native arrays
             //_waveData.Dispose();
-            _positions.Dispose();
+            //_positions.Dispose();
             _wavePos.Dispose();
             _waveNormal.Dispose();
         }
