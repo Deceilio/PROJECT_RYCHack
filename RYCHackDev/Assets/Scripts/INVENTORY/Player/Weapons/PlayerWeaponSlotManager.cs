@@ -33,7 +33,7 @@ namespace Deceilio.Psychain
                     }
                     else
                     {
-                        backSlot.UnloadWeaponAndDestroy();              
+                        //backSlot.UnloadWeaponAndDestroy();              
                     }
 
                     rightHandSlot.currentWeapon = weaponItem;

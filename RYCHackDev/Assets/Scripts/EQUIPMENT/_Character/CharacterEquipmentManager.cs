@@ -83,11 +83,11 @@ namespace Deceilio.Psychain
             float totalEquipmentLoad = 0;
 
             #region Head Armour
-            headArmourChanger.UnEquipAllHeadArmours();
+            //headArmourChanger.UnEquipAllHeadArmours();
 
             if (currentHeadArmour != null)
             {
-                headArmourChanger.EquipHeadArmourByName(currentHeadArmour.headArmourName);
+                //headArmourChanger.EquipHeadArmourByName(currentHeadArmour.headArmourName);
                 character.characterStatsManager.physicalDamageAbsorptionHead = currentHeadArmour.physicalDefense;
                 poisonResistance += currentHeadArmour.poisonResistance;
                 totalEquipmentLoad += currentHeadArmour.weight;
@@ -108,7 +108,7 @@ namespace Deceilio.Psychain
 
             if (currentChestArmour != null)
             {
-                chestArmourChanger.EquipChestArmourByName(currentChestArmour.chestArmourName);
+                //chestArmourChanger.EquipChestArmourByName(currentChestArmour.chestArmourName);
                 leftUpperArmArmourChanger.EquipLeftUpperArmArmourByName(currentChestArmour.leftUpperArmModelName);
                 rightUpperArmArmourChanger.EquipRightUpperArmArmourByName(currentChestArmour.rightUpperArmModelName);
                 character.characterStatsManager.physicalDamageAbsorptionChest = currentChestArmour.physicalDefense;
@@ -133,7 +133,7 @@ namespace Deceilio.Psychain
 
             if (currentLegArmour != null)
             {
-                hipArmourChanger.EquipHipArmourByName(currentLegArmour.hipModelName);
+                //hipArmourChanger.EquipHipArmourByName(currentLegArmour.hipModelName);
                 leftLegArmourChanger.EquipLeftLegArmourByName(currentLegArmour.leftLegName);
                 rightLegArmourChanger.EquipRightLegArmourByName(currentLegArmour.rightLegName);
                 character.characterStatsManager.physicalDamageAbsorptionLegs = currentLegArmour.physicalDefense;
@@ -159,7 +159,7 @@ namespace Deceilio.Psychain
 
             if (currentHandArmour != null)
             {
-                leftForeArmArmourChanger.EquipLeftForeArmArmourByName(currentHandArmour.leftForeArmModelName);
+                //leftForeArmArmourChanger.EquipLeftForeArmArmourByName(currentHandArmour.leftForeArmModelName);
                 rightForeArmArmourChanger.EquipRightForeArmArmourByName(currentHandArmour.rightForeArmModelName);
                 leftHandArmourChanger.EquipLeftHandArmourByName(currentHandArmour.leftHandArmourName);
                 rightHandArmourChanger.EquipRightHandArmourByName(currentHandArmour.rightHandArmourName);
@@ -171,7 +171,7 @@ namespace Deceilio.Psychain
             else
             {
                 // BELOW CODE: Equip nothing or default armour (HANDS)
-                leftForeArmArmourChanger.EquipLeftForeArmArmourByName(defaultLeftForeArmArmourModel);
+                //leftForeArmArmourChanger.EquipLeftForeArmArmourByName(defaultLeftForeArmArmourModel);
                 rightForeArmArmourChanger.EquipRightForeArmArmourByName(defaultRightForeArmArmourModel);
                 leftHandArmourChanger.EquipLeftHandArmourByName(defaultLeftHandArmourModel);
                 rightHandArmourChanger.EquipRightHandArmourByName(defaultRightHandArmourModel);
