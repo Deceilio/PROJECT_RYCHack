@@ -29,7 +29,13 @@ namespace Deceilio.Psychain
             sentences = new Queue<string>();
             currentDialogueIndex = 0;
         }
-
+        private void Update()
+        {
+            if(dialogueAnimator.GetBool("isOpen"))
+            {
+                player.canMove = false;
+            }
+        }
         private Action GetFunctionByName(string functionName)
         {
             if (string.IsNullOrEmpty(functionName))
@@ -132,6 +138,8 @@ namespace Deceilio.Psychain
         void EndDialogues()
         {
             dialogueAnimator.SetBool("isOpen", false);
+            player.canMove = true;
+            Invoke("ResetPlayerAnim", 0.2f);
         }
 
         private void PlayerHandWave()
@@ -139,10 +147,20 @@ namespace Deceilio.Psychain
             player.playerAnimatorManager.PlayTargetActionAnimation("Hand Waving", true);
         }
 
+        private void PlayerSitting()
+        {
+            player.playerAnimatorManager.PlayTargetActionAnimation("Sitting NPC", true);
+        }
+
         private void MarcusEventFinished()
         {
             Debug.Log("Marcus event finished");
             eventManager.marcusEventFinished = true;
+        }
+
+        private void ResetPlayerAnim()
+        {
+            player.playerAnimatorManager.PlayTargetActionAnimation("Empty", true);
         }
 
     }

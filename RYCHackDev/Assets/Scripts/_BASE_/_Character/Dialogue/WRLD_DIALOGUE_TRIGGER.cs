@@ -6,40 +6,54 @@ namespace Deceilio.Psychain
 {
     public class WRLD_DIALOGUE_TRIGGER : MonoBehaviour
     {
+        [HideInInspector] public PlayerManager player;
         [HideInInspector] public WRLD_EVENT_MANAGER eventManager;
         public GameObject targetObject;
         public List<WRLD_DIALOGUE> dialogues;
+        private bool isPlayerInside = false;
 
         private void Awake()
         {
             eventManager = FindObjectOfType<WRLD_EVENT_MANAGER>();
+            player = FindObjectOfType<PlayerManager>();
         }
+
         public void TriggerDialogues()
         {
             FindObjectOfType<WRLD_DIALOGUE_MANAGER>().StartDialogues(dialogues);
         }
-        private void OnTriggerStay(Collider other)
+
+        private void Update()
         {
-            if (other.CompareTag("Character")) // Assuming the trigger should only activate for objects with the "Player" tag
+            // Check for KeyCode.E input only if the player is inside the trigger
+            if (isPlayerInside && Input.GetKeyDown(KeyCode.E))
             {
-                if(gameObject.tag == "NPC")
+                TriggerDialogues();
+                // Disable the targetObject after triggering dialogues
+                targetObject.SetActive(false);
+            }
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.CompareTag("Character"))
+            {
+                if (gameObject.tag == "NPC")
                 {
-                    // Enable the targetObject when the player is inside the trigger
+                    // Enable the targetObject when the player enters the trigger
                     targetObject.SetActive(true);
-                    if(Input.GetKeyDown(KeyCode.E))
-                    {
-                        TriggerDialogues();
-                    }
+                    isPlayerInside = true;
                 }
             }
         }
 
         private void OnTriggerExit(Collider other)
         {
-            if (other.CompareTag("Character")) // Assuming the trigger should only deactivate for objects with the "Player" tag
+            if (other.CompareTag("Character"))
             {
                 // Disable the targetObject when the player exits the trigger
                 targetObject.SetActive(false);
+                isPlayerInside = false;
             }
         }
     }
