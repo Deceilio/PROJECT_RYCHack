@@ -14,6 +14,9 @@ namespace Deceilio.Psychain
         public bool bossHasBeenAwakened; // Wake the boss/watched cutscene but died during fight
         public bool bossHasBeenDefeated; // Checks if the boss has been defeated or not
 
+        [Header("EVENTS")]
+        public bool marcusEventFinished = false; // Checks for if the marcus event finished or not
+
         private void Awake()
         {
             bossHealthBar = FindObjectOfType<UI_BossHealthBar>();
