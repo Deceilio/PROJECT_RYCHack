@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 namespace Deceilio.Psychain 
 {
@@ -17,9 +18,20 @@ namespace Deceilio.Psychain
         [Header("EVENTS")]
         public bool marcusEventFinished = false; // Checks for if the marcus event finished or not
 
+        [Header("DATA")]
+        public float skyboxSpeed;
+
         private void Awake()
         {
             bossHealthBar = FindObjectOfType<UI_BossHealthBar>();
+        }
+        private void Update()
+        {
+            float rotationValue = Time.time * skyboxSpeed;
+            rotationValue = rotationValue % 360f;  // Keep the value between 0 and 360
+
+            RenderSettings.skybox.SetFloat("_Rotation", rotationValue);
+
         }
 
         public void ActivateBossFight()

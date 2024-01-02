@@ -138,6 +138,7 @@ namespace Deceilio.Psychain
         void EndDialogues()
         {
             dialogueAnimator.SetBool("isOpen", false);
+            audioSource.Stop();
             player.canMove = true;
             Invoke("ResetPlayerAnim", 0.2f);
         }
