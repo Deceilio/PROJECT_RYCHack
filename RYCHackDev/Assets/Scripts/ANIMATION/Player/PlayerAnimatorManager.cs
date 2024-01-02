@@ -1,4 +1,4 @@
-namespace Deceilio.Psychain
+namespace Adnan.RYCHack
 {
     public class PlayerAnimatorManager : CharacterAnimatorManager
     {

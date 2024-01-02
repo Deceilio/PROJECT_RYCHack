@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-namespace Deceilio.Psychain
+namespace Adnan.RYCHack
 {
     public class WRLD_EVENT_TRIGGER : MonoBehaviour
     {

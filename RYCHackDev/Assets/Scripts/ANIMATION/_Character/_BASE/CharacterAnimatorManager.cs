@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.Animations.Rigging;
 
-namespace Deceilio.Psychain
+namespace Adnan.RYCHack
 {
     public class CharacterAnimatorManager : MonoBehaviour
     {
@@ -198,96 +198,6 @@ namespace Deceilio.Psychain
         public void DisableIsParrying()
         {
             character.isParrying = false;
-        }
-        public virtual void SuccessfullyUseCurrentConsumable()
-        {
-            if(character.characterStatesManager.currentConsumableBeingUsed != null)
-            {
-                character.characterStatesManager.currentConsumableBeingUsed.SuccessfullyConsumeItem(character);
-            }
-        }
-        public void AwardLinksOnDeath()
-        {
-            if (character.isBoss)
-            {
-                PlayerManager player = FindObjectOfType<PlayerManager>();
-                UI_LinkCount linksCountUI = FindObjectOfType<UI_LinkCount>();
-
-                if (player != null)
-                {
-                    player.playerStatsManager.AddLinks(character.characterStatsManager.linksAwaradedOnDeath);
-                }
-
-                if (linksCountUI != null)
-                {
-                    linksCountUI.ChangeIncreaseAmount(character.characterStatsManager.linksAwaradedOnDeath);
-                }
-            }
-        }
-        public virtual void SetHandIKForWeapon(RightHandIKTarget rightHandIKTarget, LeftHandIKTarget leftHandIKTarget, bool isTwoHandingWeapon)
-        {
-            // BELOW CODE: Check if the character is two handing the weapon or not
-            if(isTwoHandingWeapon)
-            {
-                // BELOW CODE: If yes, then apply hand ik if needed
-                // BELOW CODE: Assign the hand ik to targets
-                rightHandConstraint.data.target = rightHandIKTarget.transform;
-                rightHandConstraint.data.targetPositionWeight = 1; // Assign this from a weapon variable if we want
-                rightHandConstraint.data.targetRotationWeight = 1;
-
-                leftHandConstraint.data.target = leftHandIKTarget.transform;
-                leftHandConstraint.data.targetPositionWeight = 1; // Assign this from a weapon variable if we want
-                leftHandConstraint.data.targetRotationWeight = 1;                
-            }
-            else 
-            {
-                // BELOW CODE: If not, then disable handle ik for now
-                rightHandConstraint.data.target = null;
-                leftHandConstraint.data.target = null;
-            }
-
-            rigBuilder.Build();
-        }
-        public virtual void CheckHandIKWeight(RightHandIKTarget rightHandIK, LeftHandIKTarget leftHandIK, bool isTwoHandingWeapon)
-        {
-            if(character.isPerformingAction)
-                return;
-
-            if(handIKWeightsReset)
-            {
-                handIKWeightsReset = false;
-
-                if(rightHandConstraint.data.target != null)
-                {
-                    rightHandConstraint.data.target = rightHandIK.transform;
-                    rightHandConstraint.data.targetPositionWeight = 1;
-                    leftHandConstraint.data.targetRotationWeight = 1; 
-                }
-
-                if(leftHandConstraint.data.target != null)
-                {
-                    leftHandConstraint.data.target = leftHandIK.transform;
-                    leftHandConstraint.data.targetPositionWeight = 1;
-                    leftHandConstraint.data.targetRotationWeight = 1; 
-                }
-            }
-        }
-        public virtual void EraseHandIKForWeapon()
-        {
-            // BELOW CODE: Reset all hand ik weights to 0
-            handIKWeightsReset = true;
-
-            if(rightHandConstraint.data.target != null)
-            {
-                rightHandConstraint.data.targetPositionWeight = 0;
-                leftHandConstraint.data.targetRotationWeight = 0; 
-            }
-
-            if(leftHandConstraint.data.target != null)
-            {
-                leftHandConstraint.data.targetPositionWeight = 0;
-                leftHandConstraint.data.targetRotationWeight = 0; 
-            }
         }
     }
 }

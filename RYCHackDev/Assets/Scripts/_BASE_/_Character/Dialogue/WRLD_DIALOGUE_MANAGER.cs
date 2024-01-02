@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Deceilio.Psychain
+namespace Adnan.RYCHack
 {
     public class WRLD_DIALOGUE_MANAGER : MonoBehaviour
     {

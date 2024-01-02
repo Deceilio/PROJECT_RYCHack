@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Deceilio.Psychain
+namespace Adnan.RYCHack
 {
     public class WRLD_RESET_ANIMATOR_BOOL : StateMachineBehaviour
     {
@@ -31,7 +31,6 @@ namespace Deceilio.Psychain
             character.canBeParried = false;
             character.canBeRiposted = false;
             character.isAttacking = false;
-            character.characterCombatManager.previousPoiseDamageTaken = 0; // After the damage animation ends reset the poise damage
         }
     }
 }

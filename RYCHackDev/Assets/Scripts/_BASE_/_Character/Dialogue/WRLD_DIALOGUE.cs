@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Deceilio.Psychain
+namespace Adnan.RYCHack
 {
     [System.Serializable]
     public class WRLD_DIALOGUE

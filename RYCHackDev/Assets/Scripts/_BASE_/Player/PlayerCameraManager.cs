@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Deceilio.Psychain
+namespace Adnan.RYCHack
 {
     public class PlayerCameraManager : MonoBehaviour
     {

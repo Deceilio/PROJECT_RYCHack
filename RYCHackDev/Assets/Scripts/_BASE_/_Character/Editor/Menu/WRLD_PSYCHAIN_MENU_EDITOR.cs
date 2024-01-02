@@ -1,7 +1,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace Deceilio.Psychain
+namespace Adnan.RYCHack
 {
     public class WRLD_PSYCHAIN_MENU_EDITOR : MonoBehaviour
     {

@@ -15,7 +15,7 @@ using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
 
-namespace Deceilio.Psychain
+namespace Adnan.RYCHack
 {
     public partial class @PlayerControls: IInputActionCollection2, IDisposable
     {

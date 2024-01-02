@@ -1,20 +1,13 @@
 using UnityEngine;
 
-namespace Deceilio.Psychain
+namespace Adnan.RYCHack
 {
     public class CharacterManager : MonoBehaviour
     {
         [HideInInspector] public Animator animator; // Reference to the animator component
         [HideInInspector] public CharacterController characterController; // Reference to the Character Controller component
         [HideInInspector] public CharacterAnimatorManager characterAnimatorManager; // Reference to the Character Animator Manager Script
-        [HideInInspector] public CharacterInventoryManager characterInventoryManager; // Reference to the Character Inventory Script
-        [HideInInspector] public CharacterCombatManager characterCombatManager; // Reference to the Character Combat Manager script
-        [HideInInspector] public CharacterStatsManager characterStatsManager; // Reference to the Character Stats Script
-        [HideInInspector] public CharacterWeaponSlotManager characterWeaponSlotManager; // Reference to the Character Weapon Slot Script
-        [HideInInspector] public CharacterSkillManager characterSkillManager; // Reference to the Character Skill Script
         [HideInInspector] public CharacterLocomotionManager characterLocomotionManager; // Reference to the Character Locomotion Manager script
-        [HideInInspector] public CharacterStatesManager characterStatesManager; // Reference to the Character States Manager script 
-        [HideInInspector] public CharacterEquipmentManager characterEquipmentManager; // Reference to the Character Equipment Manager script 
         [HideInInspector] public CharacterSoundFXManager characterSoundFXManager; // Reference to the Character Sound FX Manager script    
         
         [Header("CHARACTER DATA")]
@@ -64,14 +57,7 @@ namespace Deceilio.Psychain
             animator = GetComponent<Animator>();   
             characterController = GetComponent<CharacterController>();
             characterAnimatorManager = GetComponent<CharacterAnimatorManager>();
-            characterStatsManager = GetComponent<CharacterStatsManager>();
-            characterWeaponSlotManager = GetComponent<CharacterWeaponSlotManager>();
-            characterCombatManager = GetComponent<CharacterCombatManager>();  
-            characterEquipmentManager = GetComponent<CharacterEquipmentManager>();
-            characterSkillManager = GetComponent<CharacterSkillManager>();
-            characterInventoryManager = GetComponent<CharacterInventoryManager>();
             characterLocomotionManager = GetComponent<CharacterLocomotionManager>();
-            characterStatesManager = GetComponent<CharacterStatesManager>();
             characterSoundFXManager = GetComponent<CharacterSoundFXManager>();
         }
         protected virtual void Update()
@@ -84,11 +70,6 @@ namespace Deceilio.Psychain
             canDoCombo = animator.GetBool("canDoCombo");
             isInvulerable = animator.GetBool("isInvulnerable");
             isPerformingFullyChargedAttack = animator.GetBool("isPerformingFullyChargedAttack");
-            characterStatesManager.ProcessAllTimedStates();
-        }
-        protected virtual void FixedUpdate()
-        {
-            characterAnimatorManager.CheckHandIKWeight(characterWeaponSlotManager.rightHandIKTarget, characterWeaponSlotManager.leftHandIKTarget, isTwoHandingWeapon);
         }
         public virtual void UpdateWhichHandPlayerIsUsing(bool usingRightHand)
         {

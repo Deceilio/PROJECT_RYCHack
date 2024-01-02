@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Windows;
 
-namespace Deceilio.Psychain
+namespace Adnan.RYCHack
 {
     public class PlayerInputManager : MonoBehaviour
     {

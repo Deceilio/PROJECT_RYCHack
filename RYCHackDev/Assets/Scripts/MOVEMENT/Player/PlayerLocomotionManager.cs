@@ -1,6 +1,6 @@
  using UnityEngine;
 
-namespace Deceilio.Psychain
+namespace Adnan.RYCHack
 {
     public class PlayerLocomotionManager : CharacterLocomotionManager
     {
