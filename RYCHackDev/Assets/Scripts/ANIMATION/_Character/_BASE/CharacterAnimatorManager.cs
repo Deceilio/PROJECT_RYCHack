@@ -15,7 +15,6 @@ namespace Adnan.RYCHack
         protected RigBuilder rigBuilder; // RigBuilder component to rig the hands
         public TwoBoneIKConstraint leftHandConstraint; // Reference to the TwoBoneIKConstraint component for left hand
         public TwoBoneIKConstraint rightHandConstraint; // Reference to the TwoBoneIKConstraint component for right hand
-        bool handIKWeightsReset = false; // Reset the ik hands weight 
 
         [Header("DAMAGE ANIMATION")]
         [HideInInspector] public string Damage_Forward_Small_01 = "Damage_Forward_Small_01";

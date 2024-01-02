@@ -22,18 +22,14 @@ namespace Adnan.RYCHack
         [SerializeField] private float sprintSpeed; // Float value which contains the player's sprint speed
         
         [Header("JUMP SETTINGS")]
-        [SerializeField] private float jumpStaminaCost = 15; // Stamina cost value for reduction of stamina after jumping 
         [SerializeField] private float jumpHeight = 4; // Jump height value for the player
         [SerializeField] private float jumpForwardSpeed = 5; // Forward jump speed for the player
         [SerializeField] private float freeFallSpeed = 2; // Free Fall speed for the player
         private Vector3 jumpDirection; // Direction Value where you will Jump the player
         
         [Header("DODGE SETTINGS")]
-        [SerializeField] private int dodgeStaminaCost = 15; // The cost of stamina after every roll
         private Vector3 dodgeDirection; // Direction value where you will roll the player
 
-        [Header("SPRINT SETTINGS")]
-        [SerializeField] private float sprintStaminaCost = 0.5f; //T he cost of stamina after every sprinting
         protected override void Awake()
         {
             base.Awake();  
@@ -80,11 +76,6 @@ namespace Adnan.RYCHack
             Vector3 moveDirection = CalculateMoveDirection();
 
             player.characterController.Move(moveDirection * speed * Time.deltaTime);
-
-            if (player.isSprinting)
-            {
-                player.playerStatsManager.DeductSprintingStamina(Mathf.RoundToInt(sprintStaminaCost));
-            }
         }
         private Vector3 CalculateMoveDirection()
         {
@@ -149,7 +140,7 @@ namespace Adnan.RYCHack
         }
         public void UseSprinting()
         {
-            if (player.isPerformingAction || player.playerStatsManager.currentStamina <= 0)
+            if (player.isPerformingAction)
             {
                 // BELOW CODE: If we are performing an action and our stamina is 0 then return
                 player.isSprinting = false;
@@ -166,16 +157,11 @@ namespace Adnan.RYCHack
                 player.isSprinting = false;
             }
 
-            // BELOW CODE: If player is sprinting, then deduct sprinting stamina from player
-            if (player.isSprinting)
-            {
-                player.playerStatsManager.DeductSprintingStamina(sprintStaminaCost);
-            }
         }
         public void AttemptToPerformDodge()
         {
             // BELOW CODE: If we are performing an action and our stamina is 0 then return
-            if (player.isPerformingAction || !player.canRoll || player.playerStatsManager.currentStamina <= 0)
+            if (player.isPerformingAction || !player.canRoll)
                 return;
 
             if (player.playerInputManager.moveAmount > 0)
@@ -185,22 +171,7 @@ namespace Adnan.RYCHack
             }
             else // If we stationary, we perform  a backstep
             {
-                // BELOW CODE: Use backstep animation
-                switch (player.playerStatsManager.encumbranceLevel)
-                {
-                    case EncumbranceLevel.Light:
-                        player.playerAnimatorManager.PlayTargetActionAnimation("Backstep", true, true);
-                        break;
-                    case EncumbranceLevel.Medium:
-                        player.playerAnimatorManager.PlayTargetActionAnimation("Backstep", true, true);
-                        break;
-                    case EncumbranceLevel.Heavy:
-                        player.playerAnimatorManager.PlayTargetActionAnimation("Backstep", true, true);
-                        break;              
-                }
-
-                player.playerAnimatorManager.EraseHandIKForWeapon();
-                player.playerStatsManager.DeductStamina(dodgeStaminaCost);
+                player.playerAnimatorManager.PlayTargetActionAnimation("Backstep", true, true);
             }
         }
         private void CalculateDodgeDirection()
@@ -212,35 +183,17 @@ namespace Adnan.RYCHack
         {
             Quaternion playerRotation = Quaternion.LookRotation(dodgeDirection);
             player.transform.rotation = playerRotation;
-
-            // BELOW CODE: Use roll animation
-            switch (player.playerStatsManager.encumbranceLevel)
-            {
-                case EncumbranceLevel.Light:
-                    player.playerAnimatorManager.PlayTargetActionAnimation("Rolling", true, true);
-                    break;
-                case EncumbranceLevel.Medium:
-                    player.playerAnimatorManager.PlayTargetActionAnimation("Rolling", true, true);
-                    break;
-                case EncumbranceLevel.Heavy:
-                    player.playerAnimatorManager.PlayTargetActionAnimation("Heavy_Rolling", true, true);
-                    break;              
-            }
-
-            player.playerAnimatorManager.EraseHandIKForWeapon();
-            player.playerStatsManager.DeductStamina(dodgeStaminaCost);
+            player.playerAnimatorManager.PlayTargetActionAnimation("Rolling", true, true);
         }
         public void AttemptToPerformJump()
         {
             // BELOW CODE: If we are performing an action and our stamina is 0 then return
-            if (player.isPerformingAction || player.playerStatsManager.currentStamina <= 0 || player.isJumping || !player.isGrounded)
+            if (player.isPerformingAction || player.isJumping || !player.isGrounded)
                 return;
 
             // BELOW CODE: Use jump animation
             player.playerAnimatorManager.PlayTargetActionAnimation("Jump", false);
-            player.playerAnimatorManager.EraseHandIKForWeapon();
             player.isJumping = true;
-            player.playerStatsManager.DeductStamina(jumpStaminaCost);
 
             CalculateJumpDirection();
             ApplyJumpVelocity();
@@ -277,7 +230,7 @@ namespace Adnan.RYCHack
         public void PassThroughFog()
         {
             // BELOW CODE: If we are performing an action and our stamina is 0 then return
-            if (player.isPerformingAction || player.playerStatsManager.currentStamina <= 0)
+            if (player.isPerformingAction)
                 return;
 
             CalculateDodgeDirection();

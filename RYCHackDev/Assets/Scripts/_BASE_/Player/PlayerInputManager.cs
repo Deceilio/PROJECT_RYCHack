@@ -27,7 +27,6 @@ namespace Adnan.RYCHack
         [SerializeField] bool tapLTInput; // Input for the tap LT input (parry) - (left trigger)
         [SerializeField] bool holdRBInput; // Input for the hold RB input (critical attack) - (right bumper/shoulder)
         [SerializeField] bool holdRTInput; // Input for the hold RT input (charge attack) - (right trigger)
-        [SerializeField] bool holdLBInput; // Input for the hold LB input (blocking) - (left bumper/shoulder)
         [SerializeField] bool holdLTInput; // Input for the hold LT input () - (left trigger)
         public bool tapXInput; // Input for conusming potions
         public bool tapYInput; // Input for examine or open items
@@ -111,10 +110,6 @@ namespace Adnan.RYCHack
                 playerControls.PlayerActions.HoldRT.performed += i => holdRTInput = true;
                 playerControls.PlayerActions.HoldRT.canceled += i => holdRTInput = false; 
 
-                // BELOW CODE: Calling hold LB input (blocking) 
-                playerControls.PlayerActions.HoldLB.performed += i => holdLBInput = true; 
-                playerControls.PlayerActions.HoldLB.canceled += i => holdLBInput = false;
-
                 // BELOW CODE: Calling hold LT input ()
                 playerControls.PlayerActions.HoldLT.performed += i => holdLTInput = true; 
                 playerControls.PlayerActions.HoldLT.canceled += i => holdLTInput = false;
@@ -186,13 +181,11 @@ namespace Adnan.RYCHack
             UseTapLBInput();
             UseHoldRBInput();
             UseHoldRTInput();
-            UseHoldLBInput();
             UseHoldLTInput();
             UseQueuedInput();
 
             UseInventoryInput();
             UseQuickSlotsInput();
-            UseConsumableInput();
 
             UseLockOnInput();
             UseTwoHandInput();
@@ -222,39 +215,25 @@ namespace Adnan.RYCHack
         }
         private void UseSprintInput()
         {
-            if(player.playerStatsManager.encumbranceLevel == EncumbranceLevel.Overloaded)
+            if (sprintInput)
             {
-                
+                // BELOW CODE: Player started sprinting
+                player.playerLocomotionManager.UseSprinting();
             }
-            else 
+            else
             {
-                if(sprintInput)
-                {
-                    // BELOW CODE: Player started sprinting
-                    player.playerLocomotionManager.UseSprinting();
-                }
-                else
-                {
-                    player.isSprinting = false;
-                }
+                player.isSprinting = false;
             }
         }
         private void UseDodgeInput()
         {
-            if(player.playerStatsManager.encumbranceLevel == EncumbranceLevel.Overloaded)
+            if (dodgeInput)
             {
-                
-            }
-            else 
-            {
-                if(dodgeInput)
-                {
-                    dodgeInput = false;
+                dodgeInput = false;
 
-                    // TO-DO: Do nothing if menu or UI window is open
-                    // BELOW CODE: Perform a dodge
-                    player.playerLocomotionManager.AttemptToPerformDodge();
-                }
+                // TO-DO: Do nothing if menu or UI window is open
+                // BELOW CODE: Perform a dodge
+                player.playerLocomotionManager.AttemptToPerformDodge();
             }
         }
         private void UseJumpInput()
@@ -320,58 +299,28 @@ namespace Adnan.RYCHack
                 {
                      // BELOW CODE: Enable two handing
                     player.isTwoHandingWeapon = true;
-                    player.playerWeaponSlotManager.LoadWeaponOnSlot(player.playerInventoryManager.rightHandWeapon, false);
-                    if(player.playerInventoryManager.rightHandWeapon.ikEnabled)
-                    {
-                        player.playerWeaponSlotManager.LoadTwoHandIKTargets(true);
-                    }
-                    else 
-                    {
-                        Debug.Log("IK System in the current weapon is disabled!");    
-                    }
                 }
                 else
                 {
                     // BELOW CODE: Disable two handing
                     player.isTwoHandingWeapon = false;
-                    player.playerWeaponSlotManager.LoadWeaponOnSlot(player.playerInventoryManager.rightHandWeapon, false);
-                    player.playerWeaponSlotManager.LoadWeaponOnSlot(player.playerInventoryManager.leftHandWeapon, true);
-                    player.playerWeaponSlotManager.LoadTwoHandIKTargets(false);
                 }  
             }
         }     
         private void UseTapRBInput()
         {
-            player.playerAnimatorManager.EraseHandIKForWeapon();
-
             // RB input handles the weapon's light attack
             if (tapRBInput)
             {
                 tapRBInput = false;
-
-                if(player.playerInventoryManager.rightHandWeapon.oh_Tap_RB_Action != null)
-                {
-                    player.UpdateWhichHandPlayerIsUsing(true);
-                    player.playerInventoryManager.currentItemBeingUsed = player.playerInventoryManager.rightHandWeapon;
-                    player.playerInventoryManager.rightHandWeapon.oh_Tap_RB_Action.PerformAction(player);
-                }
             }
         }
         private void UseTapRTInput()
         {
-            player.playerAnimatorManager.EraseHandIKForWeapon();
-
             // RT input handles the weapon's heavy attack
             if (tapRTInput)
             {
                 tapRTInput = false;
-
-                if(player.playerInventoryManager.rightHandWeapon.oh_Tap_RT_Action != null)
-                {
-                    player.UpdateWhichHandPlayerIsUsing(true);
-                    player.playerInventoryManager.currentItemBeingUsed = player.playerInventoryManager.rightHandWeapon;
-                    player.playerInventoryManager.rightHandWeapon.oh_Tap_RT_Action.PerformAction(player);                 
-                }
             }
         }
         private void UseHoldRBInput()
@@ -379,12 +328,6 @@ namespace Adnan.RYCHack
             if(holdRBInput)
             {
                 holdRBInput = false;
-
-                if(player.playerInventoryManager.rightHandWeapon.oh_Hold_RB_Action != null)
-                {
-                    // BELOW CODE: Use the critical attack (backstab or riposte)
-                    player.playerInventoryManager.rightHandWeapon.oh_Hold_RB_Action.PerformAction(player);
-                }
             }
         }   
         private void UseHoldRTInput()
@@ -395,12 +338,6 @@ namespace Adnan.RYCHack
             {
                 holdRTInput = false;
                 player.UpdateWhichHandPlayerIsUsing(true);
-                player.playerInventoryManager.currentItemBeingUsed = player.playerInventoryManager.rightHandWeapon;
-
-                if(player.playerInventoryManager.rightHandWeapon.oh_Hold_RT_Action != null)
-                {
-                    player.playerInventoryManager.rightHandWeapon.oh_Hold_RT_Action.PerformAction(player);
-                }
             }
         }   
         private void UseTapLTInput()
@@ -408,25 +345,6 @@ namespace Adnan.RYCHack
             if(tapLTInput)
             {
                 tapLTInput = false;
-
-                if(player.isTwoHandingWeapon)
-                {
-                    if(player.playerInventoryManager.rightHandWeapon.oh_Tap_LT_Action != null)
-                    {
-                        player.UpdateWhichHandPlayerIsUsing(true);
-                        player.playerInventoryManager.currentItemBeingUsed = player.playerInventoryManager.rightHandWeapon;
-                        player.playerInventoryManager.rightHandWeapon.oh_Tap_LT_Action.PerformAction(player);   
-                    }
-                }
-                else
-                {
-                    if(player.playerInventoryManager.leftHandWeapon.oh_Tap_LT_Action != null)
-                    {
-                        player.UpdateWhichHandPlayerIsUsing(false);
-                        player.playerInventoryManager.currentItemBeingUsed = player.playerInventoryManager.leftHandWeapon;
-                        player.playerInventoryManager.leftHandWeapon.oh_Tap_LT_Action.PerformAction(player);   
-                    }
-                }
             }
         }
         private void UseTapLBInput()
@@ -434,63 +352,7 @@ namespace Adnan.RYCHack
             if(tapLBInput)
             {
                 tapLBInput = false;
-
-                if(player.isTwoHandingWeapon)
-                {
-                    if(player.playerInventoryManager.leftHandWeapon.oh_Tap_LB_Action != null)
-                    {
-                        player.UpdateWhichHandPlayerIsUsing(false);
-                        player.playerInventoryManager.currentItemBeingUsed = player.playerInventoryManager.leftHandWeapon;
-                        player.playerInventoryManager.leftHandWeapon.oh_Tap_LB_Action.PerformAction(player);   
-                    } 
-                } 
-                else
-                {
-                    if(player.playerInventoryManager.rightHandWeapon.oh_Tap_LB_Action != null)
-                    {
-                        player.UpdateWhichHandPlayerIsUsing(true);
-                        player.playerInventoryManager.currentItemBeingUsed = player.playerInventoryManager.rightHandWeapon;
-                        player.playerInventoryManager.rightHandWeapon.oh_Tap_LB_Action.PerformAction(player);
-                    }
-                }
             }           
-        }
-        public void UseHoldLBInput()
-        {
-            if(!player.isGrounded ||
-                player.isSprinting ||
-                player.isFiringSkill)
-            {
-                holdLBInput = false;
-                return;
-            }
-
-            if(holdLBInput)
-            {
-                if(player.playerInventoryManager.leftHandWeapon.weaponType == WeaponType.SmallShield)
-                {
-                    if(player.isTwoHandingWeapon)
-                    {
-                        player.UpdateWhichHandPlayerIsUsing(true);
-                        player.playerInventoryManager.currentItemBeingUsed = player.playerInventoryManager.rightHandWeapon;
-                        player.playerInventoryManager.rightHandWeapon.oh_Hold_LB_Action.PerformAction(player);   
-                    }
-                    else
-                    {
-                        player.UpdateWhichHandPlayerIsUsing(false);
-                        player.playerInventoryManager.currentItemBeingUsed = player.playerInventoryManager.leftHandWeapon;
-                        player.playerInventoryManager.leftHandWeapon.oh_Hold_LB_Action.PerformAction(player);   
-                    } 
-                }
-                else 
-                {
-                    Debug.Log("Shield is not equipped in the left hand!");      
-                }  
-            }
-            else  
-            {
-                player.isBlocking = false;    
-            }
         }
         public void UseHoldLTInput()
         {
@@ -536,10 +398,6 @@ namespace Adnan.RYCHack
                 {
                     Debug.Log("Can't chage weapon because player is two handing weapon");
                 }
-                else 
-                {
-                    player.playerInventoryManager.ChangeRightWeapon();
-                }
             }
             // BELOW CODE: For left hand changing weapon
             if (dPadLeft)
@@ -549,71 +407,18 @@ namespace Adnan.RYCHack
                 {
                     Debug.Log("Can't chagne weapon because player is two handing weapon");
                 }
-                else 
-                {
-                    player.playerInventoryManager.ChangeLeftWeapon();
-                }
             }
 
             // BELOW CODE: For choosing consumable item
             if(dPadUp)
             {
                 dPadUp = false;
-                player.playerStatesManager.ChangeConsumableItem();
             }
 
             // BELOW CODE: For choosing skill
             if(dPadDown)
             {
                 dPadDown = false;
-                player.playerSkillManager.ChangeSkill();
-            }
-        }
-        private void UseConsumableInput()
-        {
-            if(tapXInput)
-            {
-                tapXInput = false;
-
-                // BELOW CODE: Use current consumable
-                player.playerStatesManager.currentConsumableBeingUsed.AttemptToConsumeItem(player);
-            }
-        }
-        public void CheckForInterctableObject() // As the script name says it check if you interact with an item/weapon and then do something about it :)
-        {
-            RaycastHit interactHit;
-            if(Physics.SphereCast(transform.position, 0.3f, transform.forward, out interactHit, 1f, player.playerCameraManager.ignoreLayers))
-            {
-                if(interactHit.collider.tag == "Interactable")
-                {
-                    WRLD_INTERACTABLE interactableObject = interactHit.collider.GetComponent<WRLD_INTERACTABLE>();
-
-                    if(interactableObject != null)
-                    {
-                        string interactableText = interactableObject.interactableText;
-
-                        // BELOW CODE: It sets the UI's text into interactable text & then set the text pop up to true
-                        player.interactableUI.interactableText.text = interactableText;
-                        player.interactableUIGameObject.SetActive(true);
-
-                        if (tapYInput)
-                        {              
-                            interactHit.collider.GetComponent<WRLD_INTERACTABLE>().Interact(player);
-                        }
-                    }
-                }
-            }
-            else
-            {
-                if(player.interactableUIGameObject != null)
-                {
-                    player.interactableUIGameObject.SetActive(false);
-                }
-
-                if(player.itemInteractableGameObject != null && tapYInput)
-                {
-                    player.itemInteractableGameObject.SetActive(false);
-                }
             }
         }
         public void QueInput(ref bool queuedInput)

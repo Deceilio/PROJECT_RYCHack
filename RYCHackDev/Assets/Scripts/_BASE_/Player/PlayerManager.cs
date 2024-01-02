@@ -11,15 +11,13 @@ namespace Adnan.RYCHack
         [HideInInspector] public PlayerAnimatorManager playerAnimatorManager; // Reference to the Player Animator Manager script      
         [HideInInspector] public PlayerSoundFXManager playerSoundFXManager; // Reference to the Player Sound FX Manager script   
         
-        [Header("INTERACTABLES")]
-        public GameObject interactableUIGameObject; // Reference to the interactable UI game object
-        public GameObject itemInteractableGameObject; // Reference to the item game object which player interacted
         protected override void Awake() // Assigning all the script automatically when the game is load
         {
             base.Awake();
             // Fixed camera issue by using FindObjectOfType instead of CameraHandler.singelton; Hurray!!
             playerCameraManager = FindObjectOfType<PlayerCameraManager>(); 
             playerInputManager = GetComponent<PlayerInputManager>();
+            playerAnimatorManager = GetComponent<PlayerAnimatorManager>();
             playerLocomotionManager = GetComponent<PlayerLocomotionManager>();
             playerSoundFXManager = GetComponent<PlayerSoundFXManager>();;
         }
@@ -28,7 +26,6 @@ namespace Adnan.RYCHack
             base.Update();
             playerInputManager.UseAllInputs();
             playerLocomotionManager.UseAllMovement();
-            playerInputManager.CheckForInterctableObject();
         } 
         public void LateUpdate() // Disabling input in late update
         {    
