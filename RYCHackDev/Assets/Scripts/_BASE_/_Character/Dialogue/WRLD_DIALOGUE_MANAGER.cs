@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Deceilio.Psychain
 {
@@ -18,6 +19,28 @@ namespace Deceilio.Psychain
 
         public Animator dialogueAnimator;
         public AudioSource audioSource;
+        public Button continueButton;
+
+        [Header("CHOICES")]
+        public GameObject choiceBox;
+        public Button choiceAButton;
+        public Button choiceBButton;
+        public TextMeshProUGUI choiceAText;
+        public TextMeshProUGUI choiceBText;
+        public bool isChoiceAButtonPressed = false;
+        public bool isChoiceBButtonPressed = false;
+        public bool isInMarcusFirstChoice = false;
+        public bool isInMarcusSecondChoice = false;
+        public bool isInMarcusThirdChoice = false;
+        public WRLD_DIALOGUE_TRIGGER marcusDialogueTrigger2;
+
+        public Slider healthSlider;
+        public float decreaseSpeed = 0.1f;
+        public float depleteSpeed = 0.3f;
+
+        public GameObject gameOver;
+        public GameObject winnerOver;
+
         private void Awake()
         {
             player = FindObjectOfType<PlayerManager>(); 
@@ -26,6 +49,8 @@ namespace Deceilio.Psychain
 
         void Start()
         {
+            choiceAButton.onClick.AddListener(ChoiceAButtonPressed);
+            choiceBButton.onClick.AddListener(ChoiceBButtonPressed);
             sentences = new Queue<string>();
             currentDialogueIndex = 0;
         }
@@ -34,6 +59,75 @@ namespace Deceilio.Psychain
             if(dialogueAnimator.GetBool("isOpen"))
             {
                 player.canMove = false;
+            }
+
+            if(isInMarcusFirstChoice)
+            {
+                if (isChoiceAButtonPressed)
+                {
+                    isChoiceAButtonPressed = false;
+                    isChoiceBButtonPressed = false;
+                    continueButton.interactable = true;
+                    choiceBox.SetActive(false);
+                    isInMarcusFirstChoice = false;
+                    DisplayNextSentence();
+                }
+                else if (isChoiceBButtonPressed)
+                {
+                    isChoiceAButtonPressed = false;
+                    isChoiceBButtonPressed = false;
+                    choiceBox.SetActive(false);
+                    continueButton.interactable = true;
+                    isInMarcusFirstChoice = false;
+                    EndDialogues();
+                }
+            }
+            else if (isInMarcusSecondChoice)
+            {
+                if (isChoiceAButtonPressed)
+                {
+                    isChoiceAButtonPressed = false;
+                    isChoiceBButtonPressed = false;
+                    continueButton.interactable = true;
+                    choiceBox.SetActive(false);
+                    isInMarcusSecondChoice = false;
+                    DisplayNextSentence();
+                }
+                else if (isChoiceBButtonPressed)
+                {
+                    isChoiceAButtonPressed = false;
+                    isChoiceBButtonPressed = false;
+                    choiceBox.SetActive(false);
+                    continueButton.interactable = true;
+                    isInMarcusSecondChoice = false;
+                    marcusDialogueTrigger2.TriggerDialogues();
+                }
+            }
+            else if (isInMarcusThirdChoice)
+            {
+                if (isChoiceAButtonPressed)
+                {
+                    isChoiceAButtonPressed = false;
+                    isChoiceBButtonPressed = false;
+                    choiceBox.SetActive(false);
+                    EndDialogues();
+                    isInMarcusThirdChoice = false;
+                    StartCoroutine(DepleteHealthOverTime());
+                }
+                else if (isChoiceBButtonPressed)
+                {
+                    isChoiceAButtonPressed = false;
+                    isChoiceBButtonPressed = false;
+                    choiceBox.SetActive(false);
+                    continueButton.interactable = true;
+                    isInMarcusThirdChoice = false;
+                    DisplayNextSentence();
+                }
+            }
+
+            if(healthSlider.value == 0f)
+            {
+                gameOver.SetActive(true);
             }
         }
         private Action GetFunctionByName(string functionName)
@@ -135,7 +229,7 @@ namespace Deceilio.Psychain
             }
         }
 
-        void EndDialogues()
+        private void EndDialogues()
         {
             dialogueAnimator.SetBool("isOpen", false);
             audioSource.Stop();
@@ -163,6 +257,72 @@ namespace Deceilio.Psychain
         {
             player.playerAnimatorManager.PlayTargetActionAnimation("Empty", true);
         }
+        private void MarcusStartingFacingPlayer()
+        {
+            eventManager.marcusAnimator.SetBool("faceUp", true);
+        }
+        private void MarcusStartDrinking()
+        {
+            StartCoroutine(DecreaseHealthOverTime());
+            eventManager.marcusAnimator.SetBool("drinking", true);
+        }
+        IEnumerator DecreaseHealthOverTime()
+        {
+            while (healthSlider.value > 0.5f)
+            {
+                healthSlider.value -= decreaseSpeed * Time.deltaTime;
+                yield return null;
+            }
 
+            healthSlider.value = 0.5f;
+        }
+
+        IEnumerator DepleteHealthOverTime()
+        {
+            while (healthSlider.value > 0)
+            {
+                healthSlider.value -= depleteSpeed * Time.deltaTime;
+                yield return null;
+            }
+
+            // Ensure the final value is exactly 0
+            healthSlider.value = 0f;
+        }
+        private void MarcusEventFirstChoice()
+        {
+            isInMarcusFirstChoice = true;
+            continueButton.interactable = false;
+            choiceAText.text = "Ask about Marcus's well-being";
+            choiceBText.text = "Keep walking and mind your own business.";
+            choiceBox.SetActive(true);
+        }
+        private void MarcusEventSecondChoice()
+        {
+            isInMarcusSecondChoice = true;
+            continueButton.interactable = false;
+            choiceAText.text = "Introduce yourself";
+            choiceBText.text = "Stay silent and observe.";
+            choiceBox.SetActive(true);
+        }
+        private void MarcusEventThirdChoice()
+        {
+            isInMarcusThirdChoice = true;
+            continueButton.interactable = false;
+            choiceAText.text = "Continue the conversation";
+            choiceBText.text = "Interrupt his drinking.";
+            choiceBox.SetActive(true);
+        }
+        private void ChoiceAButtonPressed()
+        {
+            isChoiceAButtonPressed = true;
+        }
+        private void ChoiceBButtonPressed()
+        {
+            isChoiceBButtonPressed = true;
+        }
+        private void WinTheDemo()
+        {
+            winnerOver.SetActive(true);
+        }
     }
 }

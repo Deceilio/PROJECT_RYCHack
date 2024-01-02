@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 
 namespace Deceilio.Psychain 
 {
@@ -20,6 +21,9 @@ namespace Deceilio.Psychain
 
         [Header("DATA")]
         public float skyboxSpeed;
+        public Animator marcusAnimator;
+        public GameObject winnerOver;
+        public GameObject marcusObject;
 
         private void Awake()
         {
@@ -55,6 +59,18 @@ namespace Deceilio.Psychain
             {
                 fogWall.DeactivateFogWall();
             }
-        }        
+        }
+
+        public void RestartScene()
+        {
+            // Reload the current scene
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+
+        public void ContinueScene()
+        {
+            Destroy(marcusObject);
+            winnerOver.SetActive(false);
+        }
     }
 }
